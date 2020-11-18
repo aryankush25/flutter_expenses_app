@@ -22,7 +22,7 @@ class _UserTransactionsState extends State<UserTransactions> {
       title: 'New Laptop',
       amount: 23500,
       date: DateTime.now(),
-    )
+    ),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
