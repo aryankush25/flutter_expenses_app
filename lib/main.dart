@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
+        fontFamily: 'Quicksand',
       ),
       home: MyHomePage(),
     );
@@ -32,13 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction(
       id: 't1',
       title: 'New Mobile',
-      amount: 13000,
+      amount: 1300,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't2',
       title: 'New Laptop',
-      amount: 23500,
+      amount: 2350,
       date: DateTime.now(),
     ),
   ];
