@@ -15,7 +15,9 @@ class TransactionList extends StatelessWidget {
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
-                Text('No transactions added yet!'),
+                Text(
+                  'No transactions added yet!',
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -25,7 +27,7 @@ class TransactionList extends StatelessWidget {
                     'assets/images/waiting.png',
                     fit: BoxFit.cover,
                   ),
-                )
+                ),
               ],
             )
           : ListView.builder(
@@ -40,7 +42,9 @@ class TransactionList extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 30,
                       child: Padding(
-                        padding: EdgeInsets.all(6),
+                        padding: EdgeInsets.all(
+                          6,
+                        ),
                         child: FittedBox(
                           child: Text(
                             '\₹ ${transactions[index].amount.toStringAsFixed(2)}',
@@ -59,7 +63,9 @@ class TransactionList extends StatelessWidget {
                       DateFormat()
                           .add_yMMMMd()
                           .format(transactions[index].date),
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                 );
