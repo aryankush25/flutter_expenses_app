@@ -43,42 +43,51 @@ class TransactionList extends StatelessWidget {
                   horizontal: 5,
                 ),
                 child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: Padding(
-                      padding: EdgeInsets.all(
-                        6,
-                      ),
-                      child: FittedBox(
-                        child: Text(
-                          '\₹ ${transactions[index].amount.toStringAsFixed(2)}',
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                        padding: EdgeInsets.all(
+                          6,
+                        ),
+                        child: FittedBox(
+                          child: Text(
+                            '\₹ ${transactions[index].amount.toStringAsFixed(2)}',
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  title: Text(
-                    transactions[index].title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                    title: Text(
+                      transactions[index].title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                  subtitle: Text(
-                    DateFormat().add_yMMMMd().format(transactions[index].date),
-                    style: TextStyle(
-                      color: Colors.grey,
+                    subtitle: Text(
+                      DateFormat()
+                          .add_yMMMMd()
+                          .format(transactions[index].date),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(
-                      Icons.delete,
-                    ),
-                    color: Colors.red,
-                    onPressed: () {
-                      deleteTransaction(transactions[index].id);
-                    },
-                  ),
-                ),
+                    trailing: MediaQuery.of(context).size.width > 460
+                        ? FlatButton.icon(
+                            icon: Icon(Icons.delete),
+                            label: Text('Delete'),
+                            textColor: Theme.of(context).errorColor,
+                            onPressed: () {
+                              deleteTransaction(transactions[index].id);
+                            })
+                        : IconButton(
+                            icon: Icon(
+                              Icons.delete,
+                            ),
+                            color: Colors.red,
+                            onPressed: () {
+                              deleteTransaction(transactions[index].id);
+                            },
+                          )),
               );
             },
             itemCount: transactions.length,
